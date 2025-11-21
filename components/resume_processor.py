@@ -21,12 +21,27 @@ class ResumeProcessor:
             return f.read()
     
     def process_uploaded_file(self, uploaded_file) -> Tuple[str, str]:
-        """Process uploaded file and return text and file path."""
-        with tempfile.NamedTemporaryFile(delete=False, suffix=f".{uploaded_file.name.split('.')[-1]}") as tmp_file:
-            tmp_file.write(uploaded_file.read())
-            temp_path = tmp_file.name
+        """Process uploaded file and return text and file path.
 
-        if uploaded_file.name.endswith(".pdf"):
+        Supports both file-like objects (Streamlit/FastAPI) and string paths.
+        """
+        # Case 1: file-like object (UploadFile, Streamlit upload, etc.)
+        if hasattr(uploaded_file, "read"):
+            file_name = getattr(uploaded_file, "filename", getattr(uploaded_file, "name", "uploaded_resume.pdf"))
+            suffix = os.path.splitext(file_name)[1] or ".pdf"
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                tmp_file.write(uploaded_file.read())
+                temp_path = tmp_file.name
+
+        # Case 2: string file path (already saved on disk)
+        elif isinstance(uploaded_file, str) and os.path.exists(uploaded_file):
+            temp_path = uploaded_file
+
+        else:
+            raise ValueError("Invalid uploaded_file: expected file object or valid file path")
+
+        # Extract text based on file extension
+        if temp_path.lower().endswith(".pdf"):
             text = self.extract_text_from_pdf(temp_path)
         else:
             text = self.extract_text_from_txt(temp_path)
