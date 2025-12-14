@@ -1,8 +1,8 @@
 ## *Job Recommendation System*
 
-Recommendation systems are AI-based tools that analyze user behavior, preferences, and historical data to suggest relevant items such as products, movies, or music. They play a crucial role in personalizing user experiences, increasing engagement, and improving conversion rates. Popular platforms like Netflix (movie recommendations), Amazon (product suggestions), and Spotify (music playlists) rely heavily on recommendation systems to help users efficiently discover content tailored to their interests.
+Recommendation systems are AI-based tools that analyze user behavior, preferences, and historical data to suggest relevant items such as products, movies, or music. They play a crucial role in personalizing user experiences, increasing engagement, and improving conversion rates. Popular platforms like Netflix (for movie recommendations), Amazon (for product suggestions), and Spotify (for music playlists) rely heavily on recommendation systems to help users efficiently discover content tailored to their interests.
 
-In this project, I have built a Job Recommendation System where a user uploads their resume, and the system recommends the top 10 most relevant job opportunities based on the user’s skills, experience, and profile
+In this project, I have built a Job Recommendation System where a user uploads their resume, and the system recommends the top 10 most relevant job opportunities based on the user’s skills, experience, and profile.
 
 ## **Motivation**
 * To connect users with job opportunities that best match their skills, experience, and career interests, enabling them to find roles that are well-suited to their profiles.
@@ -37,7 +37,7 @@ This approach uses a simpler yet more effective pipeline:
 
 **Why this approach worked better:**
 * No requirement for hard negatives
-* Hybrid search combines semantic similarity and keyword relevance, improving result * quality
+* Hybrid search combines semantic similarity and keyword relevance, improving * quality
 * Fast retrieval leads to lower inference latency
 * Domain re-ranking prioritizes the most relevant job roles
 * The re-ranking model is trained on ~200,000 samples with balanced representation across domains, avoiding class imbalance
@@ -45,4 +45,7 @@ This approach uses a simpler yet more effective pipeline:
 
 ## **End-to-End AI-Powered Job Recommendation Pipeline**
 ![Job Recommendation Pipeline](job_recys_pipeline.png)
+
+## **Demo Video**
+[Job Recommendation Demo](https://youtu.be/Ms_kxvzgihs?si=O2YFeZkVsuoeXYkH)
 
