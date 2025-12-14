@@ -13,6 +13,7 @@ Two different datasets were used:
 * A dataset containing resumes
 ## **Links**
 [Job dataset](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
+
 [Resume dataset](https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset)
 
 ## *Methodology*
@@ -43,4 +44,5 @@ This approach uses a simpler yet more effective pipeline:
 * Job diversity is maintained during the re-ranking process
 
 ## **End-to-End AI-Powered Job Recommendation Pipeline**
-![Job Recommendation Pipeline](assets/job_recys_pipeline.png)
+![Job Recommendation Pipeline](job_recys_pipeline.png)
+
